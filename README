@@ -1,0 +1,46 @@
+AutoTags
+========
+Author: Sur http://expressica.com
+Homepage: http://expressica.com/auto_tags
+License: MIT
+
+
+Intoroduction
+=============
+AutoTags is a rubyonrails plugin to automatically generate the relevant tags from the provided content.
+The tags further can automatically be pushed in database using the legacy acts_as_taggable plugin.
+The plugin is very useful for social networking site, communities sites and all those public sites
+where there is a scope of huge content. So, no more manually tagging all your content... just a simple and slick solution.
+
+
+Example
+=======
+
+model specific usage
+
+  # sing attribute example
+  class Vendor < ActiveRecord::Base
+    auto_tags :include => :product
+  end
+
+  # multiple attributes example
+  class Vendor < ActiveRecord::Base
+    auto_tags :include => [:product, :description]
+  end
+
+  # associations example
+  class Book < ActiveRecord::Base
+    has_many :authors
+    auto_tags :include => [:title, :description, :authors_names]
+    
+    def authors_names
+      authors.collect{|a| a.name.join(' ')}
+    end
+  end
+
+generic usage
+  
+  AutoTags::AutoTagsGenerator.generate_tags(content)
+
+
+Copyright (c) 2008 [Sur http://expressica.com], released under the MIT license
