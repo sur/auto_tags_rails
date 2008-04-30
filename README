@@ -40,7 +40,7 @@ model specific usage
 
 generic usage
   
-  AutoTags::AutoTagsGenerator.generate_tags(content)
+  AutoTags::AutoTagsGeneration.generate_tags(content)
 
 
 Copyright (c) 2008 [Sur http://expressica.com], released under the MIT license
