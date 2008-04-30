@@ -37,11 +37,13 @@ module AutoTags #:nodoc
             when 'Error'
               error_messages = []
               xml.elements.to_a.first.get_elements('Message').each{|el| error_messages << el.text}
-              raise AutoTagsServerError, error_messages.join(" "), caller
+              # raise AutoTagsServerError, error_messages.join(" "), caller
+              return []
             end
           end
         rescue
-          raise AutoTagsServerError, "auto_tags server connection error", caller
+          # raise AutoTagsServerError, "auto_tags server connection error", caller
+          return []
         end
       end
     end

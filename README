@@ -18,7 +18,7 @@ Example
 
 model specific usage
 
-  # sing attribute example
+  # single attribute example
   class Vendor < ActiveRecord::Base
     auto_tags :include => :product
   end
